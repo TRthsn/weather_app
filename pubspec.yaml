@@ -17,6 +17,10 @@ dependencies:
   google_fonts: ^6.1.0
   #state managament
   flutter_riverpod: ^2.4.9
+  #cache
+  shared_preferences: ^2.2.2
+  #anim
+  lottie: ^2.7.0
 
 
 dev_dependencies:
@@ -29,3 +33,4 @@ flutter:
 
 assets:
   - .env
+  - assets/
