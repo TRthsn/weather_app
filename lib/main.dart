@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:weather_app/feature/home/view/home_page_view.dart';
 import 'package:weather_app/feature/home/view_modal/riverpod.dart';
-import 'package:weather_app/feature/home/view_modal/theme_notifier.dart';
 
 void main() {
   runApp(const ProviderScope(child: MainApp()));
