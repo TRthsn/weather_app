@@ -15,8 +15,10 @@ class _HomePageViewState extends HomePageViewModal<HomePageView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         actions: [
-          InkWell(
+          GestureDetector(
             onTap: () {
               swichTheme();
             },

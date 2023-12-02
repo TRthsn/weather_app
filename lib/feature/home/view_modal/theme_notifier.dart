@@ -5,11 +5,9 @@ import 'package:weather_app/service/cache/cache_manager.dart';
 class ThemeNotifier extends Notifier<ThemeMode> {
   ThemeNotifier({required CacheManager cacheManager})
       : _cacheManager = cacheManager,
-        super() {
-    getCurrentTheme();
-  }
+        super();
   final CacheManager _cacheManager;
-  ThemeMode startMode = ThemeMode.light;
+  ThemeMode? startMode;
 
   Future<void> getCurrentTheme() async {
     startMode = await _cacheManager.getTheme();
@@ -26,6 +24,7 @@ class ThemeNotifier extends Notifier<ThemeMode> {
 
   @override
   ThemeMode build() {
-    return startMode;
+    getCurrentTheme();
+    return startMode ?? ThemeMode.light;
   }
 }
