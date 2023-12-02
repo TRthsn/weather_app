@@ -5,6 +5,7 @@ import 'package:weather_app/service/riverpod.dart';
 abstract class HomePageViewModal<T extends ConsumerStatefulWidget>
     extends ConsumerState<T> with TickerProviderStateMixin {
   late final AnimationController animationController;
+  late final TextEditingController textEditingController;
 
   ThemeMode getCurrentTheme() {
     return ref.watch(themeNotifierProvider);
@@ -13,10 +14,18 @@ abstract class HomePageViewModal<T extends ConsumerStatefulWidget>
   @override
   void initState() {
     super.initState();
+    textEditingController = TextEditingController();
     animationController = AnimationController(
         vsync: this,
         duration: const Duration(seconds: 1),
         value: ref.read(themeNotifierProvider) == ThemeMode.light ? 0.5 : 0);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    textEditingController.dispose();
+    animationController.dispose();
   }
 
   void swichTheme() {
@@ -27,6 +36,6 @@ abstract class HomePageViewModal<T extends ConsumerStatefulWidget>
   }
 
   void getWeather() {
-    String currentCity = '';
+    String currentCity = textEditingController.text.trim();
   }
 }

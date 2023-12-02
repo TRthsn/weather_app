@@ -7,22 +7,16 @@ environment:
   sdk: '>=3.1.5 <4.0.0'
 
 dependencies:
+  dio: ^5.4.0
   flutter:
     sdk: flutter
-  #Env
   flutter_dotenv: ^5.1.0
-  #State managament
   flutter_riverpod: ^2.4.9
-  #Font
   google_fonts: ^6.1.0
-  #HTTP requests
   http: ^1.1.2
-  #Serialization
   json_annotation: ^4.8.1
   json_serializable: ^6.7.1
-  #Anim
   lottie: ^2.7.0
-  #Cache
   shared_preferences: ^2.2.2
 
 dev_dependencies:
@@ -34,6 +28,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-assets:
-  - .env
-  - assets/
+  assets:
+    - .env
+    - assets/
