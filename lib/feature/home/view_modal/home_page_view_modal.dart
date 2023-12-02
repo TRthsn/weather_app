@@ -25,4 +25,8 @@ abstract class HomePageViewModal<T extends ConsumerStatefulWidget>
         : animationController.animateTo(0);
     ref.read(themeNotifierProvider.notifier).changeTheme();
   }
+
+  void getWeather() {
+    String currentCity = '';
+  }
 }
