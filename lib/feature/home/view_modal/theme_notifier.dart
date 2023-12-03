@@ -1,6 +1,8 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:weather_app/service/cache/cache_manager.dart';
+import 'package:weather_app/service/riverpod.dart';
 
 class ThemeNotifier extends Notifier<ThemeMode> {
   ThemeNotifier({required CacheManager cacheManager})
@@ -9,8 +11,8 @@ class ThemeNotifier extends Notifier<ThemeMode> {
   final CacheManager _cacheManager;
   ThemeMode? startMode;
 
-  Future<void> getCurrentTheme() async {
-    startMode = await _cacheManager.getTheme();
+  void getCurrentTheme() {
+    startMode = ref.read(getCacheWeatherProvider);
   }
 
   Future<void> changeTheme() async {
